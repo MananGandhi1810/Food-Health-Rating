@@ -3,9 +3,7 @@ import base64
 import google.generativeai as genai
 import os
 import PIL.Image
-import dotenv
 
-dotenv.load_dotenv()
 api_key = os.environ["API_KEY"]
 
 app = Flask(__name__)
