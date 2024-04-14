@@ -24,7 +24,7 @@ def index():
     img = PIL.Image.open("image.jpg")
     response = model.generate_content(
         [
-            "This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product. When you give a rating, mention the characters '/10'. Also mention the name of the food product.",
+            "This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product. When you give a rating, mention the characters '/10'. Also mention the name of the food product. Let me know if this is not suitable for people with any allergies. If you can't determine the food product, just say 'I can't determine the food product'.",
             img,
         ]
     )
