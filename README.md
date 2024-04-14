@@ -1,0 +1,2 @@
+# AI Health Rating
+This is a simple Flask Server that takes an image of a food product as input, and returns a health rating for the product. The health rating is based on the nutritional information of the product.
