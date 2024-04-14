@@ -5,6 +5,7 @@ import os
 import PIL.Image
 
 api_key = os.environ["API_KEY"]
+port = os.environ.get("PORT", 443)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024
@@ -23,7 +24,7 @@ def index():
     img = PIL.Image.open("image.jpg")
     response = model.generate_content(
         [
-            "This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product.",
+            "This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product. When you give a rating, mention the characters '/10'",
             img,
         ]
     )
@@ -36,4 +37,4 @@ def test():
     return "Test route"
 
 
-app.run(debug=True, host="0.0.0.0", port=443)
+app.run(debug=True, host="0.0.0.0", port=port)
