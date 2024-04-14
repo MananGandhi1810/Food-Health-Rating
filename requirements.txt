@@ -1,0 +1,5 @@
+flask
+google-generativeai
+base64
+dotenv
+pillow
