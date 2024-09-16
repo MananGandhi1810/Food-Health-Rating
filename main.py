@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024
 
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-pro-vision")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 @app.post("/")
@@ -29,7 +29,8 @@ def index():
     img = PIL.Image.open("image.jpg")
     response = model.generate_content(
         [
-            f"This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product. When you give a rating, mention the characters '/10'. Also mention the name of the food product. Let me know if this is not suitable for people with any allergies. Give the health rating at the start of your response. These are my parameters of importance: {str(data)}",
+            f"This is a food product. Give me the health rating for this between 1 and 10, where 1 is the worst and 10 is the healthiest. Also include some tips on how I can cook with that food product. When you give a rating, mention the characters '/10'. Also mention the name of the food product. Let me know if this is not suitable for people with any allergies. Give the health rating at the start of your response. These are my parameters of importance: {
+                str(data)}",
             img,
         ]
     )
